@@ -11,8 +11,7 @@ int main(int argc, char** argv)
     int* array = 0;                 ///< The array we need to find the max in
     int  max   = -1;                ///< The maximal element
 
-    double openmp_version = omp_get_wtime();
-    printf("OpenMP version: %f\n", openmp_version);
+    printf("OpenMP: %d;\n======\n", _OPENMP);
 
     /* Initialize the RNG */
     srand(random_seed);
@@ -29,7 +28,7 @@ int main(int argc, char** argv)
         {
             if(array[i] > max) { max = array[i]; };
         }
-        printf("-%d- My lmax is: %d;\n", omp_get_thread_num(), max);
+        printf("-%d- My max is: %d;\n", omp_get_thread_num(), max);
     }
 
     printf("======\nMax is: %d;\n", max);
